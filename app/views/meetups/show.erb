@@ -1,0 +1,19 @@
+<h1>
+  <% meetup = Meetup.find(@id) %>
+  <%= meetup.title %>
+</h1>
+<h3><%= meetup.description %></h3>
+<h4>
+  <%= meetup.location %> - <%= meetup.date %> - <%= meetup.time %>
+  <form action="" method="post">
+    <br><button>Join!</button>
+  </form>
+</h4>
+
+<h2> Attendees: <h2>
+  <ul>
+    <% @attendees.each do |attendee| %>
+      <% user = User.find(attendee.user_id) %>
+    <li> <%= user.username %>, <%= user.email %> </li>
+    <% end %>
+  </ul>
